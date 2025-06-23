@@ -9,7 +9,7 @@ using namespace delta_exec::greeks;
 
 void test_greeks_latency() {
     OptionGreeks greeks;
-    double S = 100, K = 100, r = 0.01, v = 0.2, T = 15/365;
+    double S = 100, K = 100, r = 0.07, v = 0.2, T = 15.0/365.0;
     auto start = std::chrono::high_resolution_clock::now();
     double call_delta = greeks.call_delta(S, K, r, v, T);
     double put_delta = greeks.put_delta(S, K, r, v, T);

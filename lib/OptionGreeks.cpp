@@ -1,23 +1,11 @@
 #include "OptionGreeks.h"
-#include <cmath>
+
 
 using namespace delta_exec::greeks;
 
 OptionGreeks::OptionGreeks()
 {
 
-}
-// Standard normal probability density function
-double OptionGreeks::norm_pdf(const double x)
-{
-    return (1.0 / pow(2*M_PI, 0.5))*exp(-0.5 * x * x);
-}
-
-// An approximation to the cumulative distribution function
-// for the standard normal distribution
-double OptionGreeks::norm_cdf(const double x)
-{
-    return (0.5 * erfc(-x * M_SQRT1_2));
 }
 
 
@@ -35,7 +23,8 @@ double OptionGreeks::call_price(const double S, const double K, const double r, 
 
 double OptionGreeks::call_delta(const double S, const double K, const double r, const double v, const double T)
 {
-  return norm_cdf(d_j(1, S, K, r, v, T));
+  //return norm_cdf(d_j(1, S, K, r, v, T));
+  return CumulativeNormal(d_j(1, S, K, r, v, T)) ;
 }
 
 
@@ -79,7 +68,8 @@ double OptionGreeks::put_price(const double S, const double K, const double r, c
 // Calculate the European vanilla put Delta
 double OptionGreeks::put_delta(const double S, const double K, const double r, const double v, const double T)
 {
-  return norm_cdf(d_j(1, S, K, r, v, T)) - 1;
+  //return norm_cdf(d_j(1, S, K, r, v, T)) - 1;
+  return CumulativeNormal(d_j(1, S, K, r, v, T)) - 1; // Identical to call by put-call parity
 }
 
 // Calculate the European vanilla put Gamma
