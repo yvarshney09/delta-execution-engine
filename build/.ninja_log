@@ -1,0 +1,20 @@
+# ninja log v6
+11	2120	7723977540634282	strategies/CMakeFiles/strategy.dir/StrategyExecution.cpp.obj	d8638d8ef0e5d1a0
+127	1848	7723977541847758	CMakeFiles/test_latency.dir/test_latency.cpp.obj	5a17b4bf8360ffb2
+231	1161	7723958507046156	lib/CMakeFiles/optiongreeks.dir/Normals.cpp.obj	b00ae7f33f10d24a
+2121	2622	7723977561749133	strategies/libstrategy.a	93f894909b2c3fac
+56	1385	7723973207329799	lib/CMakeFiles/optiongreeks.dir/OptionGreeks.cpp.obj	4da3ee73239cf11c
+2632	2976	7723977566831572	test_latency.exe	7b40372ba66fa933
+1388	1925	7723973220621763	lib/liboptiongreeks.a	64578b8b951c1520
+2623	2975	7723977566720841	delta_exec.exe	12020dc91345a4aa
+5	802	7723996463300636	build.ninja	34ba4d7ee6c6b110
+72	1615	7723977541250863	CMakeFiles/delta_exec.dir/main.cpp.obj	1e429b2374138178
+4	776	7723996463300636	build.ninja	34ba4d7ee6c6b110
+71	1400	7723996464898002	lib/CMakeFiles/optiongreeks.dir/OptionGreeks.cpp.obj	4da3ee73239cf11c
+133	1764	7723996465544048	CMakeFiles/delta_exec.dir/main.cpp.obj	1e429b2374138178
+1403	1868	7723996478226542	lib/liboptiongreeks.a	ac5bd80567bf9c83
+191	1986	7723996466122983	CMakeFiles/test_latency.dir/test_latency.cpp.obj	5a17b4bf8360ffb2
+14	2105	7723996464352340	strategies/CMakeFiles/strategy.dir/StrategyExecution.cpp.obj	d8638d8ef0e5d1a0
+2105	2573	7723996485162104	strategies/libstrategy.a	93f894909b2c3fac
+2574	2908	7723996489925523	delta_exec.exe	12020dc91345a4aa
+2579	2909	7723996489925523	test_latency.exe	7b40372ba66fa933

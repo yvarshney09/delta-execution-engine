@@ -1,8 +1,7 @@
-#include <iostream>
+#include "StrategyExecution.h"
 
 int main() {
-    std::cout << " C++ setup is working in VS Code!" << std::endl;
+    StrategyExecution strat;
+    strat.run();
     return 0;
 }
-// This code prints a success message to the console.
-// Make sure to compile and run this code to verify your C++ setup.

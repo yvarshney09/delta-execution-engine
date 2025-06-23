@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 
 namespace delta_exec
@@ -24,12 +25,11 @@ namespace delta_exec
                 double put_theta(const double S, const double K, const double r, const double v, const double T);
                 double put_rho(const double S, const double K, const double r, const double v, const double T);
 
-                template<typename... T>
-                struct always_false { static constexpr bool value = false; };
 
 
 
-                double impVol(double stkPrx, double strike, double tte, double optPx, std::string type, double interestRate);
+
+                double impVol(double stkPrx, double strike, double tte, double optPx, bool isCallOption, double interestRate);
 
                 double optionPrice(const double S, const double K, const double r, const double v, const double T, bool isCallOption)
                 {
