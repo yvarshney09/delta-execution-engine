@@ -1,7 +1,9 @@
 #include "StrategyExecution.h"
 #include <iostream>
 
-StrategyExecution::StrategyExecution() {
+StrategyExecution::StrategyExecution()
+    :_rng(std::random_device{}()), _deltaMultiplierDist({5, 90, 5})
+     {
     //initalize option chains
     //configure timer callbacks, etc.
     //subscribe to market data
@@ -66,13 +68,14 @@ void StrategyExecution::OnTimerCallback(uint64_t time) {//called every second
     _ewmaTradeVolume = _ewmaManagerTradeVolume.value();
     _shortTermTradeVolume = 0; // reset short term trade volume after processing
     updateImpliedForwardAndSyntheticCandidatePrices();
-
+    int randomMultiplier = _deltaMultiplierDist(_rng);
+    int deltaTargetForThisinterval = _currentDeltaAcquisitionRate * randomMultiplier; // Convert to lots per second
     int numTargets = std::min<int>(5, _forwardPricesForStrikes.size());
-    int deltaPerTarget = (_currentDeltaAcquisitionRate + numTargets - 1) / numTargets;
+    int deltaPerTarget = (deltaTargetForThisinterval + numTargets - 1) / numTargets;
     
     int allocatedDelta = 0;
     for (int i = 0; i < numTargets; ++i) {
-        int remainingDelta = _currentDeltaAcquisitionRate - allocatedDelta;
+        int remainingDelta = deltaTargetForThisinterval - allocatedDelta;
         int thisDelta = std::min(deltaPerTarget, remainingDelta);
 
         if (thisDelta <= 0) break;

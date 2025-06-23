@@ -156,6 +156,8 @@ class StrategyExecution {
         } 
     }
 private:
+    std::mt19937 _rng;
+    std::discrete_distribution<> _deltaMultiplierDist;
     InstrumentManager* _instrumentManager = nullptr; // Pointer to the instrument manager
     EWMA _ewmaManagerTradeVolume; // Exponentially Weighted Moving Average for trade volume
     OptionGreeks _optionGreek; // Option Greeks calculator
