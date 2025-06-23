@@ -3,6 +3,10 @@ project(delta_execution)
 
 set(CMAKE_CXX_STANDARD 17)
 
+# Enable best optimization flags for release builds
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -DNDEBUG")
+set(CMAKE_C_FLAGS_RELEASE "-O3 -march=native -DNDEBUG")
+
 
 add_subdirectory(strategies)
 add_subdirectory(lib)

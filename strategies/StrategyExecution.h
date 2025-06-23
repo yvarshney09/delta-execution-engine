@@ -43,10 +43,17 @@ public:
         return nullptr; // Placeholder for actual implementation
     };
 };
+enum class ResponseType {
+    NEW_ORDER = 0,
+    TRADE = 1,
+    CANCEL = 2,
+};
 struct OrderResponse{
     int _instrumentId; // Unique identifier for the instrument
     int _qty;
     int _price;
+    ResponseType _responseType; // Type of response (NEW_ORDER, TRADE, CANCEL)
+    uint64_t _timestamp; // Timestamp of the response in nanoseconds since epoch
 };
 struct OrderRequest {
     int _instrumentId; // Unique identifier for the instrument

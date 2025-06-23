@@ -33,7 +33,9 @@ void StrategyExecution::OnMarketData(MarketData* bookUpdate) {
 void StrategyExecution::OnOrderResponse(OrderResponse orderResponse) {
     // This function will process the order response then calculate the delta acquired
     // and update the total delta acquired so far. Then update the average delta acquisition rate.
-
+    if (orderResponse._responseType != ResponseType::TRADE) {
+        return; // Only process trade responses for now
+    }
     int qty = orderResponse._qty;// assuming qty is in lots
     auto instrumentInfo = _instrumentManager->GetInstrumentInfo(orderResponse._instrumentId);
     double strikePrice = instrumentInfo->_strikePrice;
